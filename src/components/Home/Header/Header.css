@@ -1,0 +1,20 @@
+.headerContainer{
+    /* style={{width:'100%', minHeight:'70vh', backgroundImage:'url(CoverImage)'}} */
+
+
+    width: 100%;
+    min-height: 80vh;
+    background-image: url('../../../images/bg2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+
+.col-sm-12{
+    margin-top: 10px;
+}
+
+.col-xs-12{
+    margin-top: 10px;
+}

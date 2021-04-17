@@ -1,0 +1,32 @@
+.navBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10%;
+    background-color: #fff;
+    width: 100%;
+    margin: 0px auto;
+    /* position: relative;
+    top:50px;
+    border-radius: 3px; */
+
+}
+.logo{
+    width: 150px;
+    background-color: #fff;
+}
+
+.nav__links{
+    display: inline-block;
+    list-style-type: none;
+}
+
+.nav__links li{
+    display: inline-block;
+    padding: 0 20px;
+    
+}
+
+.toggler{
+    display: none;
+}
