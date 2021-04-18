@@ -4,6 +4,7 @@ import './Testimonials.css';
 import Carousel from 'react-elastic-carousel';
 import ReviewCard from './ReviewCard/ReviewCard';
 
+
 const Testimonials = () => {
 
 
@@ -20,7 +21,7 @@ const Testimonials = () => {
     const breakPoints = [
         {width: 500, itemsToShow: 1},
         {width: 768, itemsToShow: 2},
-        {width: 1200, itemsToShow: 3},
+        {width: 968, itemsToShow: 3},
         {width: 1500, itemsToShow: 4},
     ];
 
@@ -35,8 +36,8 @@ const Testimonials = () => {
                <br></br><br></br>
                </div>
 
-               <div style={{display:'flex', alignItems:'center', justifyContent:'center',flexWrap:'wrap'}}>
-                   <Carousel breakPoints={breakPoints}>
+               <div style={{ width:'100%', minHeight:'100px',  display:'flex', alignItems:'center', justifyContent:'center',flexWrap:'wrap'}}>
+               <Carousel id="reviewCarousel" breakPoints={breakPoints}>
                       {
                           reviews.slice(0).reverse().map(review => <ReviewCard key={review._id} review={review}></ReviewCard>)
                       }

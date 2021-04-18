@@ -77,10 +77,10 @@ const AddReview = () => {
                                 <label><strong>Give a review</strong></label><br />
                                
 
-                                <textarea className="inputStyle" name="review" id="review" cols="40" rows="5" {...register('review', {required:true})}>Your review...</textarea>
+                                <textarea className="inputStyle" style={{width:'40vw'}} name="review" id="review" cols="40" rows="5" {...register('review', {required:true})}>Your review...</textarea>
                                  {errors.review && <span>Field Required</span>}
-
-                                <input className="btn-add-to-cart"  style={{ padding: '15px', width: '80px', borderRadius: '5px' , backgroundColor:'crimson', color:'#fff'}} type="submit" value="Save" />
+                                <br></br>
+                                <input className="btn-add-to-cart"  style={{ padding: '10px', width: '80px', borderRadius: '5px' , backgroundColor:'crimson', color:'#fff'}} type="submit" value="Post" />
                             </div>
                         </div>
 

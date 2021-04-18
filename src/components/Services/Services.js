@@ -38,10 +38,13 @@ const Services = () => {
                <br></br><br></br>
                </div>
 
-               <div style={{display:'flex', alignItems:'center', justifyContent:'center',flexWrap:'wrap'}}>
+               <div className="sub-wrapper">
+               <div className="service-wrapper">
                    {
                        services.slice(0).reverse().map(serv => <ServiceCard key={serv._id} service={serv}></ServiceCard>)
                    }
+               </div>
+
                </div>
               
            </Container>

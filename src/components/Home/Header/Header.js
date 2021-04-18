@@ -15,15 +15,16 @@ const Header = () => {
                 <Navbar></Navbar>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh', background: 'rgba(0,0,0,.5)', }}>
 
-                    <Container>
+                    <Container style={{marginBottom:'100px'}}>
 
                         <div style={{ color: 'white', width: '50%', textAlign: 'left', padding: '20px' }}>
 
                             <span style={{ fontSize: '48px' }}><strong>Professional <span style={{color:'white'}}>repairing</span></strong></span>
-                            <p><b>The largest autotechnical center in 2350 cities with modern equipment and qualified personnel.</b></p>
+                            <span style={{width:'100%'}}><p>The largest autotechnical center in 2350 cities with modern equipment and qualified personnel.</p>
+</span>
                             <br />
                             <br></br>
-                            <Button variant="danger" style={{ borderRadius: '5px', height: '40px', }}><b>Check our services now</b></Button>
+                            <Button variant="danger" style={{ borderRadius: '5px', height:'40px' }}><b>Check now</b></Button>
 
                         </div>
 
@@ -35,7 +36,7 @@ const Header = () => {
 
 
             </div>
-            <Container>
+            <Container style={{marginBottom:'100px'}}>
                 <div style={{ minHeight: '150px', margin: '-85px auto', padding: '10px', textAlign: 'center', }}>
                     <Row>
                         <Col xs={12} md={4} sm={12} mt-5>
@@ -64,7 +65,6 @@ const Header = () => {
                     </Row>
                 </div>
             </Container>
-            <br></br><br></br><br></br><br></br>
         </header>
         
 

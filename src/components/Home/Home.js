@@ -1,6 +1,6 @@
 import React from 'react';
 import About from '../About/About';
-import Contact from '../Contact/Contact';
+import AskAnything from '../AskAnything/AskAnything';
 import Footer from '../Footer/Footer';
 import Services from '../Services/Services';
 import Testimonials from '../Testimonials/Testimonials';
@@ -13,11 +13,12 @@ const Home = () => {
     return (
         <div>
             <Header></Header>
-            <About></About>
-            <Services></Services>
+             <About></About>
+           <Services></Services>
             <Testimonials></Testimonials>
-            <Contact></Contact>
+           <AskAnything></AskAnything>
             <Footer></Footer>
+            
         </div>
     );
 };

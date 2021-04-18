@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Table, Container, Spinner } from 'react-bootstrap';
-import { faEdit, faTrash,faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faEdit, faTrash, faPlus, faSms, faTools, faListUl, faComments, faUserPlus, faThList, faHome, faHammer, faLo, faCartPlus, faEnvelope  } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HiddenNav from '../HiddenNav/HiddenNav';
 import SideNav from '../SideNav/SideNav';
@@ -12,10 +12,20 @@ import './Admin.css';
 
 const Admin = () => {
 
-   
+
     const [loggedInUser, setLoggedInUser] = useContext(AuthContext);
     const [services, setServices] = useState([]);
     const [deleteSpinner, setDeleteSpinner] = useState(null);
+    const [admins, setAdmins] = useState([]);
+    const [orders, setOrders] = useState([]);
+    const [reviews, setReviews] = useState([]);
+    const [sms, setSms] = useState([]);
+    const [userOrders, setUserOrders] = useState([]);
+    const [isAdmin, setIsAdmin] = useState(null);
+
+
+
+
 
     const url = `https://evening-shore-59266.herokuapp.com/services`;
 
@@ -24,6 +34,34 @@ const Admin = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setServices(data));
+
+
+        //reviews
+
+        fetch('https://evening-shore-59266.herokuapp.com/reviews')
+            .then(res => res.json())
+            .then(data => setReviews(data))
+
+
+        //orders
+        fetch('https://evening-shore-59266.herokuapp.com/orders')
+            .then(res => res.json())
+            .then(data => setOrders(data))
+
+        //userOrders
+        fetch(`https://evening-shore-59266.herokuapp.com/orders/${loggedInUser.email}`)
+            .then(res => res.json())
+            .then(data => setUserOrders(data))
+
+
+
+            //adminCheck
+            fetch(`https://evening-shore-59266.herokuapp.com/admins/${loggedInUser.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setIsAdmin(data[0]);
+            })
+
 
     }, [])
 
@@ -68,7 +106,7 @@ const Admin = () => {
     }
 
     return (
-            <div  style={{overflowX:'hidden'}}>
+        <div style={{ overflowX: 'hidden' }}>
             <div className="Adminwrapper">
 
                 {/* SideNav */}
@@ -96,11 +134,112 @@ const Admin = () => {
                         }
                     </div>
 
-                    <div className="mainPanel">
+                    <div className="mainPanel" style={{minHeight:'80vh'}}>
 
+
+                        <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'flex-start' }}>
+
+
+                        {
+                           isAdmin ?
+
+                           <div style={{display:'flex', width:'100%', alignItems:'center', justifyContent:'center',flexWrap:'wrap'}}>
+                                <div style={{ width: '200px', minHeight: '150px', boxShadow: '20px 20px 60px grey', borderRadius: '5px', margin: '10px'}}>
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px' }}>
+                                    <div>
+                                    <h1><FontAwesomeIcon icon={faTools} /></h1>
+                                    </div>
+                                    <div>
+                                        <div style={{ padding: '10px' }}><h1>{services.length}</h1></div>
+                                    </div>
+                                </div>
+                                <div style={{ textAlign: 'center' }}>
+                                    <h5><strong>Total Services</strong></h5>
+                                </div>
+                            </div>
+
+                       
+
+
+                           
+                              <div style={{ width: '200px', minHeight: '150px', boxShadow: '20px 20px 60px grey', borderRadius: '5px', margin: '10px' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px' }}>
+                                    <div>
+                                    <h1><FontAwesomeIcon icon={faListUl} /></h1>
+                                    </div>
+                                    <div>
+                                        <div style={{ padding: '10px' }}><h1>{orders.length}</h1></div>
+                                    </div>
+                                </div>
+                                <div style={{ textAlign: 'center' }}>
+                                    <h5><strong>Total Orders</strong></h5>
+                                </div>
+                            </div>
+
+                          
+
+                           
+                              <div style={{width: '200px', minHeight: '150px', boxShadow: '20px 20px 60px grey', borderRadius: '5px', margin: '10px' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px' }}>
+                                    <div>
+                                    <h1><FontAwesomeIcon icon={faComments} /></h1>
+                                    </div>
+                                    <div>
+                                        <div style={{ padding: '10px' }}><h1>{reviews.length}</h1></div>
+                                    </div>
+                                </div>
+                                <div style={{ textAlign: 'center' }}>
+                                    <h5><strong>Total Reviews</strong></h5>
+                                </div>
+                            </div>
+
+                      
+
+
+                     
+                              <div style={{ width: '200px', minHeight: '150px', boxShadow: '20px 20px 60px grey', borderRadius: '5px', margin: '10px' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px' }}>
+                                    <div>
+                                    <h1><FontAwesomeIcon icon={faCartPlus} /></h1>
+                                    </div>
+                                    <div>
+                                        <div style={{ padding: '10px' }}><h1>{userOrders.length}</h1></div>
+                                    </div>
+                                </div>
+                                <div style={{ textAlign: 'center' }}>
+                                    <h5><strong>My orders</strong></h5>
+                                </div>
+                            </div>
+
+                           </div>
+                 
+                            
+                            :
+
+                           
+                           
+                              <div style={{ width: '200px', minHeight: '150px', boxShadow: '20px 20px 60px grey', borderRadius: '5px', margin: '10px',textDecoration:'none' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px' }}>
+                                    <div>
+                                        <h1><FontAwesomeIcon icon={faCartPlus} /></h1>
+                                    </div>
+                                    <div>
+                                        <div style={{ padding: '10px' }}><h1>{userOrders.length}</h1></div>
+                                    </div>
+                                </div>
+                                <div style={{ textAlign: 'center' }}>
+                                <Link to="/order"><h5><strong>My orders</strong></h5></Link>
+                                </div>
+                            </div>
+                            
+
+                    
+                        }
+
+                        </div>
 
                     </div>
-    
+
                 </div>
             </div>
         </div>

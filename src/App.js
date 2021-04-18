@@ -8,7 +8,6 @@ import {
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Services from './components/Services/Services';
-import Contact from './components/Contact/Contact';
 import Navbar from './components/Home/Navbar/Navbar';
 import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
@@ -22,6 +21,7 @@ import MyOrders from './components/MyOrders/MyOrders';
 import ManageServices from './components/Admin/ManageServices/ManageServices';
 import AllOrders from './components/Admin/AllOrders/AllOrders';
 import ClientQuery from './components/Admin/ClientQuery/ClientQuery';
+import AskAnything from './components/AskAnything/AskAnything';
 
 export const AuthContext = createContext();
 export const CartContext = createContext();
@@ -60,8 +60,8 @@ function App() {
        <Route path="/login">
           <Login></Login>
        </Route>
-        <Route path="/contact">
-          <Contact></Contact>
+        <Route path="/askAnything">
+          <AskAnything></AskAnything>
         </Route>
         <Route path="/about">
             <About></About>

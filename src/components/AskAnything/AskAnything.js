@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import './Contact.css';
+import './AskAnything.css';
 
-const Contact = () => {
+const AskAnything = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
 
@@ -77,4 +77,4 @@ const Contact = () => {
     );
 };
 
-export default Contact;
+export default AskAnything;

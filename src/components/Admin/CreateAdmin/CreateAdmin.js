@@ -69,9 +69,9 @@ const CreateAdmin = () => {
                         <div className="group-field" >
                             <div className="input-wrapper">
                                 <label><strong>Email</strong></label><br />
-                                <input className="inputStyle" placeholder="Add email here..."  {...register("email", { required: true })} />
+                                <input className="inputStyle" style={{width:'40vw'}} placeholder="Add email here..."  {...register("email", { required: true })} />
                                 {errors.email && <span>This field is required</span>}
-                                <input className="btn-add-to-cart"  style={{ padding: '15px', width: '80px', borderRadius: '5px' , backgroundColor:'crimson', color:'#fff'}} type="submit" value="Save" />
+                                <input style={{ padding: '8px', width: '80px', borderRadius: '5px' , backgroundColor:'crimson', color:'#fff'}} type="submit" value="Create" />
                             </div>
                         </div>
 

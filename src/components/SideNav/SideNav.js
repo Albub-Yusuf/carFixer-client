@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../App';
-import { faEdit, faTrash, faPlus, faThList, faHome, faHammer, faLo, faCartPlus, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faEdit, faTrash, faPlus, faSms,faListUl,faComments,faUserPlus,faThList, faHome, faHammer, faLo, faCartPlus, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SideNav.css';
 import { Link } from 'react-router-dom';
@@ -68,7 +68,7 @@ const SideNav = () => {
                         </div>
                         <br></br>
                         <div className="menus">
-                            <Link to="/manage-service"><p><FontAwesomeIcon icon={faThList} /> Manage Services</p></Link>
+                            <Link to="/manage-service"><p><FontAwesomeIcon icon={faListUl} /> Manage Services</p></Link>
                         </div>
                         <br></br>
 
@@ -77,15 +77,15 @@ const SideNav = () => {
                         </div>
                         <br></br>
                         <div className="menus">
-                            <Link to="/addAdmin"><p><FontAwesomeIcon icon={faPlus} /> Create Admin</p></Link>
+                            <Link to="/addAdmin"><p><FontAwesomeIcon icon={faUserPlus} /> Create Admin</p></Link>
                         </div>
                         <br></br>
                         <div className="menus">
-                            <Link to="/createReview"><p><FontAwesomeIcon icon={faThList} /> Add Review</p></Link>
+                            <Link to="/createReview"><p><FontAwesomeIcon icon={faComments} /> Add Review</p></Link>
                         </div>
                         <br></br>
                         <div className="menus">
-                            <Link to="/query"><p><FontAwesomeIcon icon={faEnvelope} /> Client Message</p></Link>
+                            <Link to="/query"><p><FontAwesomeIcon icon={faSms} /> Client Message</p></Link>
                         </div>
                         <br></br>
 
@@ -101,7 +101,7 @@ const SideNav = () => {
                         <br></br>
 
                         <div className="menus">
-                        <Link to="/createReview"><p><FontAwesomeIcon icon={faThList} /> Add Review</p></Link>
+                        <Link to="/createReview"><p><FontAwesomeIcon icon={faComments} /> Add Review</p></Link>
 
                         </div>
                         <br></br>

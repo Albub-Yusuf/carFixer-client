@@ -1,7 +1,7 @@
 .navBar{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 20px 10%;
     background-color: #fff;
     width: 100%;
@@ -14,6 +14,7 @@
 .logo{
     width: 150px;
     background-color: #fff;
+
 }
 
 .nav__links{
@@ -27,6 +28,55 @@
     
 }
 
+.nav__links ul li a{
+    text-decoration: none;   
+}
+
 .toggler{
     display: none;
+}
+
+
+
+
+/*  */
+
+.nav__link ul li a:hover{
+    color:crimson;
+}
+
+#nav_log {
+    text-decoration: none;
+    width: 100px;
+}
+
+#nav_log a{
+    text-decoration: none;
+    width: 100px;
+}
+
+
+
+.ham-menu{
+    color: #333;
+    display: none;
+}
+
+#navLoginBtn{
+  /* style={{ borderRadius: '20px', height: '40px', width: '100px', margin:'0 auto' }} */
+ border-radius: 5px;
+}
+
+
+@media(max-width:835px){
+    .toggler{
+        display: block;
+    }
+    .nav-link-wrapper{
+        display: none;
+    }
+    .lognav{
+        display: none;
+    }
+
 }

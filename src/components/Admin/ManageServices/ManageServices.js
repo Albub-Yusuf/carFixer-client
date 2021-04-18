@@ -28,7 +28,7 @@ const ManageServices = () => {
 
     const deleteService = (id) => {
 
-        alert(id);
+     
 
         const url = `https://evening-shore-59266.herokuapp.com/delete/${id}`;
 

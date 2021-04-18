@@ -1,0 +1,75 @@
+
+button.rec-arrow-right{
+    visibility: hidden;
+  }
+
+  button.rec-arrow-left{
+    visibility: hidden;
+  }
+  
+  .rec-item-wrapper{
+      min-width: 300px;
+
+  }
+
+  .rec-slider-container{
+      min-width: 300px;
+      
+  }
+
+  @media (max-width: 440px){
+
+    #reviewCarousel{
+      margin-right: -50px;
+    }
+
+    .rec-item-wrapper{
+     /* // min-width: 300px; */
+     min-width: 300px;
+     
+
+  }
+
+  .rec-slider-container{
+      /* min-width: 300px; */
+      
+      
+  }
+  .rec-carousel{
+    margin-left: -70px;
+  }
+  }
+  @media(max-width: 370px) {
+    .rec-carousel{
+      margin-left: -120px;
+    }
+    
+  }
+  @media(max-width: 358px) {
+    .rec-carousel{
+      margin-left: -90px;
+    }
+  }
+  @media(max-width: 320px) {
+    .rec-carousel{
+      margin-left: -120px;
+    }
+  }
+
+  @media(max-width: 414px) {
+    .rec-carousel{
+      margin-left: -55px;
+    }
+  }
+
+
+
+    
+    
+  
+
+
+
+
+  
+ 

@@ -168,7 +168,7 @@ const AddService = () => {
                     </div>
 
                     <div className="bottomPanel">
-                        <input className="btn-add-to-cart"  style={{ padding: '15px', width: '80px', borderRadius: '5px' }} type="submit" value="Save" />
+                        <input  style={{ padding: '10px', width: '80px', borderRadius: '8px', backgroundColor:'crimson', color:'#fff' }} type="submit" value="Save" />
 
                     </div>
                 </form>
