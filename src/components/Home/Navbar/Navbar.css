@@ -79,4 +79,12 @@
         display: none;
     }
 
+    #hidden-ui{
+        display: flex;
+        background: #fff;
+        align-items: center;
+        justify-content: flex-end;
+        transition: 0.3s ease-in-out;
+    }
+
 }

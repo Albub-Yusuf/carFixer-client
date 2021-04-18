@@ -16,100 +16,100 @@ import ProcessPayment from './ProcessPayment/ProcessPayment';
 
 const Checkout = () => {
 
-   
-    
-    
+
+
+
 
     const [cartInfos, setCartInfos] = useContext(CartContext);
-    
-  const { id, title, details, price, image,} = cartInfos;
-  console.log(cartInfos);
 
-  const [loggedInUser, setLoggedInUser] = useContext(AuthContext);
-  const userName = loggedInUser.name;
-  
+    const { id, title, details, price, image, } = cartInfos;
+    console.log(cartInfos);
 
-  const { register,  watch, formState: { errors } } = useForm();
-  const [spinnerdataUpload, setSpinnerdataUpload] = useState(null);
-  const [visible, setVisible] = useState(0);
+    const [loggedInUser, setLoggedInUser] = useContext(AuthContext);
+    const userName = loggedInUser.name;
 
 
-  const onSubmit = data =>{
+    const { register, watch, formState: { errors } } = useForm();
+    const [spinnerdataUpload, setSpinnerdataUpload] = useState(null);
+    const [visible, setVisible] = useState(0);
 
-    console.log(data);
-  }
 
+    const onSubmit = data => {
 
- 
-
-  const proceedCheckout = () => {
-    const newOrder = {
-      user: userName,
-      email: loggedInUser.email,
-      service: title,
-      details: details,
-      price: price,
-      image: image,
-      status: 'pending',
-      orderTime: new Date()
-
+        console.log(data);
     }
-}
+
+
+
+
+    const proceedCheckout = () => {
+        const newOrder = {
+            user: userName,
+            email: loggedInUser.email,
+            service: title,
+            details: details,
+            price: price,
+            image: image,
+            status: 'pending',
+            orderTime: new Date()
+
+        }
+    }
 
 
     return (
-    
 
-<div>
-<div className="Adminwrapper">
 
-{/* SideNav */}
-<div className="side-nav-section"><SideNav></SideNav></div>
-<div className="content">
+        <div>
+            <div className="Adminwrapper">
 
-     {/* Hidden Nav */}
-     <div className="hiddenNavAdmin">
-        <HiddenNav></HiddenNav>
-    </div>
+                {/* SideNav */}
+                <div className="side-nav-section"><SideNav></SideNav></div>
+                <div className="content">
 
-    {/* Top panel */}
-    <div className="topPanel">
-        <h3>Shipment info</h3>
-    </div>
+                    {/* Hidden Nav */}
+                    <div className="hiddenNavAdmin">
+                        <HiddenNav></HiddenNav>
+                    </div>
 
-    {/* form */}
-        <div className="mainPanel">
+                    {/* Top panel */}
+                    <div className="topPanel">
+                        <h3>Shipment info</h3>
+                    </div>
 
-            <ProcessPayment></ProcessPayment>
+                    {/* form */}
+                    <div className="mainPanel">
 
-            {
-                spinnerdataUpload &&
+                        <ProcessPayment></ProcessPayment>
 
-                <div className="uploadStatus">
-                    <Spinner style={{ margin: '0px auto', textAlign: 'center' }} animation="grow" role="status" variant="warning">
-                        <span className="sr-only">Loading...</span>
-                    </Spinner>
-                    <span style={{ color: 'red' }}>Uploading...</span>
+                        {
+                            spinnerdataUpload &&
+
+                            <div className="uploadStatus">
+                                <Spinner style={{ margin: '0px auto', textAlign: 'center' }} animation="grow" role="status" variant="warning">
+                                    <span className="sr-only">Loading...</span>
+                                </Spinner>
+                                <span style={{ color: 'red' }}>Uploading...</span>
+                            </div>
+
+                        }
+
+                    </div>
+
+                    <div className="bottomPanel">
+
+
+
+
+                    </div>
+
+
+
+
                 </div>
-
-            }
-
+            </div>
         </div>
-
-        <div className="bottomPanel">
-
-    
-            
-
-        </div>
-  
-
-
-
-</div>
-</div>
-</div>
-// </div>
+        // </div>
 
 
 

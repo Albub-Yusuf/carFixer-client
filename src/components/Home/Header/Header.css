@@ -18,3 +18,20 @@
 .col-xs-12{
     margin-top: 10px;
 }
+
+.business-info-card{
+    
+    margin-right: 10px;
+    padding: 10px;
+   
+    background: lightsteelblue;
+    color: #333;
+    border-radius: 5px;
+}
+
+.business-info-inner-wrapper{
+    min-height: 150px;
+    margin: -85px auto;
+    padding: 10px;
+    text-align: center;
+}

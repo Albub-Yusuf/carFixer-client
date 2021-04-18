@@ -13,8 +13,8 @@ const Navbar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(AuthContext);
     const [locations, setLocations] = useState(false);
 
-      //navbar collapse toggle
-      const handleNavToggle = () => {
+    //navbar collapse toggle
+    const handleNavToggle = () => {
 
         console.log('clicked');
 
@@ -33,7 +33,7 @@ const Navbar = () => {
     }
 
     const handleLogout = () => {
-        
+
 
         firebase.auth().signOut().then(() => {
             // Sign-out successful.
@@ -47,56 +47,47 @@ const Navbar = () => {
 
     return (
         <div>
-        <div className="navBar">
+            <div className="navBar">
+                <h3 className="logo"><FontAwesomeIcon icon={faHammer}></FontAwesomeIcon><span><strong> Car<sup style={{ color: 'crimson' }}> <b>fixer.  </b></sup></strong></span></h3>
+                <nav className="nav-link-wrapper">
+                    <ul className="nav__links">
 
-            {/* <img className="logo" src={logo} alt=""/> */}
-            <h3 className="logo"><FontAwesomeIcon icon={faHammer}></FontAwesomeIcon><span><strong> Car<sup style={{ color: 'crimson' }}> <b>fixer.  </b></sup></strong></span></h3>
-          <nav className="nav-link-wrapper">
-                <ul className="nav__links">
+                        <Link to="/home"><li><strong>Home</strong></li></Link>
+                        <Link to="/home"><li><strong>About us</strong></li></Link>
+                        <Link to="/order"><li><strong>Orders</strong></li></Link>
+                        <Link to="/admin"><li><strong>Admin</strong></li></Link>
+                    </ul>
 
-                    <Link to="/home"><li><strong>Home</strong></li></Link>
-                    <Link to="/home"><li><strong>About us</strong></li></Link>
-                    <Link to="/order"><li><strong>Orders</strong></li></Link>
-                    <Link to="/admin"><li><strong>Admin</strong></li></Link>
-                </ul>
+                </nav>
 
-            </nav>
+                <div className="lognav">
+                    <p>{loggedInUser.email ? <Button id="nav_logout" onClick={handleLogout} variant="danger" style={{ borderRadius: '20px', height: '40px', }}><strong>Logout</strong></Button> : <Link to="/login"> <Button id="nav_log" variant="danger" style={{ borderRadius: '20px', height: '40px', }}><strong>Login</strong></Button>&nbsp;</Link>}</p>
 
-            <div className="lognav">
-               {/* <Link to="/login"> <Button id="nav_log" variant="danger" style={{ borderRadius: '20px', height: '40px',  }}><strong>Login</strong></Button>&nbsp;</Link> */}
-               <p>{loggedInUser.email ? <Button id="nav_logout" onClick={handleLogout} variant="danger" style={{ borderRadius: '20px', height: '40px',  }}><strong>Logout</strong></Button> : <Link to="/login"> <Button id="nav_log" variant="danger" style={{ borderRadius: '20px', height: '40px',  }}><strong>Login</strong></Button>&nbsp;</Link>}</p>
+                </div>
+
+                <div>
+                    <span className="toggler"><FontAwesomeIcon icon={faBars} onClick={handleNavToggle}></FontAwesomeIcon> &nbsp;</span>
+
+                </div>
+
 
             </div>
-         
-            <div>
-            <span className="toggler"><FontAwesomeIcon icon={faBars} onClick={handleNavToggle}></FontAwesomeIcon> &nbsp;</span>
-
-            </div>
-
-            
 
 
-
-        </div>
-
-
-{/* Collapsed navigation */}
-{
-    locations && <div id="hidden-ui" style={{ display: 'flex', background: '#fff', alignItems: 'center', justifyContent: 'flex-end', transition:'0.3s ease-in-out'}}>
-        <div >
-        <p><Link to="/home" onClick={handleNavToggle}><strong>Home</strong></Link></p>
-                        {/* <p><Link to="/add" onClick={handleNavToggle}><strong>Add Book</strong></Link></p> */}
+            {/* Collapsed navigation */}
+            {
+                locations && <div id="hidden-ui">
+                    <div >
+                        <p><Link to="/home" onClick={handleNavToggle}><strong>Home</strong></Link></p>
                         <p><Link to="/orders" onClick={handleNavToggle}><strong>Orders</strong></Link></p>
                         <p><Link to="/admin" onClick={handleNavToggle}><strong>Admin</strong></Link></p>
-                        {/* <Link to="/login"> <Button id="navLoginBtn" variant="danger"><strong>Login</strong></Button>&nbsp;</Link> */}
+                        <p>{loggedInUser.email ? <Button id="nav_logout2" onClick={handleLogout} variant="danger" style={{ borderRadius: '20px', height: '40px', }}><strong>Logout</strong></Button> : <Link to="/login"> <Button id="nav_log" variant="danger" style={{ borderRadius: '20px', height: '40px', }}><strong>Login</strong></Button>&nbsp;</Link>}</p>
 
-                        <p>{loggedInUser.email ? <Button id="nav_logout2" onClick={handleLogout} variant="danger" style={{ borderRadius: '20px', height: '40px',  }}><strong>Logout</strong></Button> : <Link to="/login"> <Button id="nav_log" variant="danger" style={{ borderRadius: '20px', height: '40px',  }}><strong>Login</strong></Button>&nbsp;</Link>}</p>
-           
+                    </div>
+                </div>
+
+            }
         </div>
-    </div>
-
-}
-</div>
 
     );
 };

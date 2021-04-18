@@ -3,7 +3,7 @@ import HiddenNav from '../../HiddenNav/HiddenNav';
 import SideNav from '../../SideNav/SideNav';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Table, Container,Button } from 'react-bootstrap';
+import { Table, Container, Button } from 'react-bootstrap';
 import { AuthContext } from '../../../App';
 import { useForm } from "react-hook-form";
 
@@ -13,9 +13,9 @@ const AllOrders = () => {
     const [loggedInUser, setLoggedInUser] = useContext(AuthContext);
     const [orders, setOrders] = useState([]);
     const status = [
-        {sid:1,status:"pending"},
-        {sid:2,status:"ongoing"},
-        {sid:3,status:"completed"},
+        { sid: 1, status: "pending" },
+        { sid: 2, status: "ongoing" },
+        { sid: 3, status: "completed" },
     ];
 
     let serial = 0;
@@ -35,16 +35,11 @@ const AllOrders = () => {
 
     }, []);
 
-   
+
 
 
     const changeStatus = (id, status) => {
 
-     //   alert(id, status);
-        console.log(id, status);
-
-        
-       
         const updatedOrder = { id, status };
 
 
@@ -57,7 +52,7 @@ const AllOrders = () => {
             .then(res => res.json())
             .then(result => {
                 if (result) {
-                   alert('status updated...')
+                    alert('status updated...')
                 }
             })
 
@@ -84,10 +79,7 @@ const AllOrders = () => {
                         <h3>Order List</h3>
                     </div>
 
-
-                    <div className="mainPanel">
-
-
+                      <div className="mainPanel">
                         <Container>
                             <br></br>
                             <h2>Orders</h2>
@@ -121,20 +113,9 @@ const AllOrders = () => {
                                                     <td>
                                                         <div>
 
-                                                          
-
-                                     
-                                                              
-                                                                <Button variant="danger" size="sm" onClick={() => changeStatus(order._id, 'pending')}>pending</Button>
-                                                                <Button variant="warning" size="sm" onClick={() => changeStatus(order._id, 'ongoing')}>ongoing</Button>
-                                                                <Button variant="success" size="sm" onClick={() => changeStatus(order._id, 'completed')}>completed</Button>
-
-                                                                
-
-
-
-                                                                
-
+                                                            <Button variant="danger" size="sm" onClick={() => changeStatus(order._id, 'pending')}>pending</Button>
+                                                            <Button variant="warning" size="sm" onClick={() => changeStatus(order._id, 'ongoing')}>ongoing</Button>
+                                                            <Button variant="success" size="sm" onClick={() => changeStatus(order._id, 'completed')}>completed</Button>
 
                                                         </div>
 
@@ -142,9 +123,6 @@ const AllOrders = () => {
 
                                                 </tr>)
                                             }
-
-
-
                                         </tbody>
                                     </Table>
                                 </div>
@@ -158,13 +136,7 @@ const AllOrders = () => {
 
                     <div className="bottomPanel">
 
-
-
-
                     </div>
-
-
-
 
                 </div>
             </div>

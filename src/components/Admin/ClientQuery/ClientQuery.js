@@ -25,80 +25,80 @@ const ClientQuery = () => {
 
 
     return (
-        <div  style={{overflowX:'hidden'}}>
-        <div className="Adminwrapper">
+        <div style={{ overflowX: 'hidden' }}>
+            <div className="Adminwrapper">
 
-            {/* SideNav */}
-            <div className="side-nav-section"><SideNav></SideNav></div>
-            <div className="content">
+                {/* SideNav */}
+                <div className="side-nav-section"><SideNav></SideNav></div>
+                <div className="content">
 
-                {/* Hidden Nav */}
-                <div className="hiddenNavAdmin">
-                    <HiddenNav></HiddenNav>
-                </div>
+                    {/* Hidden Nav */}
+                    <div className="hiddenNavAdmin">
+                        <HiddenNav></HiddenNav>
+                    </div>
 
-                {/* Top panel */}
-                <div className="topPanel">
-                    <h3>Show Customer Message</h3>
-                    {
-                        deleteSpinner &&
+                    {/* Top panel */}
+                    <div className="topPanel">
+                        <h3>Show Customer Message</h3>
+                        {
+                            deleteSpinner &&
 
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <Spinner style={{ margin: '0px auto', textAlign: 'center' }} animation="grow" role="status" variant="warning">
-                                <span className="sr-only">Loading...</span>
-                            </Spinner>
-                            <span style={{ color: 'red' }}>Deleting...</span>
-                        </div>
-
-                    }
-                </div>
-
-                <div className="mainPanel">
-
-                         <Container fluid>
-          
-                        <h2>Customer Message</h2>
-                        
-                        <div className="table-wrapper">
-                            <div>
-                                <Table responsive="sm">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Message</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {
-                                            query.slice(0).reverse().map(msg => <tr key={msg._id}>
-                                                <td>{serial = serial + 1}</td>
-                                                <td>{msg.name}</td>
-                                                <td>{msg.email}</td>
-                                                <td>
-                                                    {msg.message}
-                                                </td>
-                                                <td>
-                                                    
-                                                </td>
-
-                                            </tr>)
-                                        }
-
-                                    </tbody>
-                                </Table>
+                            <div className="flex-center">
+                                <Spinner className="spinner-center" animation="grow" role="status" variant="warning">
+                                    <span className="sr-only">Loading...</span>
+                                </Spinner>
+                                <span style={{ color: 'red' }}>Deleting...</span>
                             </div>
 
-                        </div>
+                        }
+                    </div>
 
-                    </Container> 
+                    <div className="mainPanel">
+
+                        <Container fluid>
+
+                            <h2>Customer Message</h2>
+
+                            <div className="table-wrapper">
+                                <div>
+                                    <Table responsive="sm">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Message</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {
+                                                query.slice(0).reverse().map(msg => <tr key={msg._id}>
+                                                    <td>{serial = serial + 1}</td>
+                                                    <td>{msg.name}</td>
+                                                    <td>{msg.email}</td>
+                                                    <td>
+                                                        {msg.message}
+                                                    </td>
+                                                    <td>
+
+                                                    </td>
+
+                                                </tr>)
+                                            }
+
+                                        </tbody>
+                                    </Table>
+                                </div>
+
+                            </div>
+
+                        </Container>
+
+                    </div>
 
                 </div>
-
             </div>
         </div>
-    </div>
     );
 };
 

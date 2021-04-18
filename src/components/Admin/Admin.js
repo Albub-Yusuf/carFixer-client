@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Table, Container, Spinner } from 'react-bootstrap';
-import { faEdit, faTrash, faPlus, faSms, faTools, faListUl, faComments, faUserPlus, faThList, faHome, faHammer, faLo, faCartPlus, faEnvelope  } from '@fortawesome/free-solid-svg-icons'
+import { faEdit, faTrash, faPlus, faSms, faTools, faListUl, faComments, faUserPlus, faThList, faHome, faHammer, faLo, faCartPlus, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HiddenNav from '../HiddenNav/HiddenNav';
 import SideNav from '../SideNav/SideNav';
@@ -55,8 +55,8 @@ const Admin = () => {
 
 
 
-            //adminCheck
-            fetch(`https://evening-shore-59266.herokuapp.com/admins/${loggedInUser.email}`)
+        //adminCheck
+        fetch(`https://evening-shore-59266.herokuapp.com/admins/${loggedInUser.email}`)
             .then(res => res.json())
             .then(data => {
                 setIsAdmin(data[0]);
@@ -124,8 +124,8 @@ const Admin = () => {
                         {
                             deleteSpinner &&
 
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                <Spinner style={{ margin: '0px auto', textAlign: 'center' }} animation="grow" role="status" variant="warning">
+                            <div className="flex-center">
+                                <Spinner className="spinner-center" animation="grow" role="status" variant="warning">
                                     <span className="sr-only">Loading...</span>
                                 </Spinner>
                                 <span style={{ color: 'red' }}>Deleting...</span>
@@ -134,107 +134,107 @@ const Admin = () => {
                         }
                     </div>
 
-                    <div className="mainPanel" style={{minHeight:'80vh'}}>
+                    <div className="mainPanel" style={{ minHeight: '80vh' }}>
 
 
                         <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'flex-start' }}>
 
 
-                        {
-                           isAdmin ?
+                            {
+                                isAdmin ?
 
-                           <div style={{display:'flex', width:'100%', alignItems:'center', justifyContent:'center',flexWrap:'wrap'}}>
-                                <div style={{ width: '200px', minHeight: '150px', boxShadow: '20px 20px 60px grey', borderRadius: '5px', margin: '10px'}}>
-                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px' }}>
-                                    <div>
-                                    <h1><FontAwesomeIcon icon={faTools} /></h1>
+                                    <div className="flex-center" style={{ width: '100%', flexWrap: 'wrap' }}>
+                                        <div className="dashboard-info-card">
+                                            <div className="dashboard-info-card-top">
+                                                <div>
+                                                    <h1><FontAwesomeIcon icon={faTools} /></h1>
+                                                </div>
+                                                <div>
+                                                    <div style={{ padding: '10px' }}><h1>{services.length}</h1></div>
+                                                </div>
+                                            </div>
+                                            <div style={{ textAlign: 'center' }}>
+                                                <h5><strong>Total Services</strong></h5>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div className="dashboard-info-card">
+                                            <div className="dashboard-info-card-top">
+                                                <div>
+                                                    <h1><FontAwesomeIcon icon={faListUl} /></h1>
+                                                </div>
+                                                <div>
+                                                    <div style={{ padding: '10px' }}><h1>{orders.length}</h1></div>
+                                                </div>
+                                            </div>
+                                            <div style={{ textAlign: 'center' }}>
+                                                <h5><strong>Total Orders</strong></h5>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div className="dashboard-info-card">
+                                            <div className="dashboard-info-card-top">
+                                                <div>
+                                                    <h1><FontAwesomeIcon icon={faComments} /></h1>
+                                                </div>
+                                                <div>
+                                                    <div style={{ padding: '10px' }}><h1>{reviews.length}</h1></div>
+                                                </div>
+                                            </div>
+                                            <div style={{ textAlign: 'center' }}>
+                                                <h5><strong>Total Reviews</strong></h5>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div className="dashboard-info-card">
+                                            <div className="dashboard-info-card-top">
+                                                <div>
+                                                    <h1><FontAwesomeIcon icon={faCartPlus} /></h1>
+                                                </div>
+                                                <div>
+                                                    <div style={{ padding: '10px' }}><h1>{userOrders.length}</h1></div>
+                                                </div>
+                                            </div>
+                                            <div style={{ textAlign: 'center' }}>
+                                                <h5><strong>My orders</strong></h5>
+                                            </div>
+                                        </div>
+
                                     </div>
-                                    <div>
-                                        <div style={{ padding: '10px' }}><h1>{services.length}</h1></div>
+
+
+                                    :
+
+
+
+                                    <div className="dashboard-info-card">
+                                        <div className="dashboard-info-card-top" style={{ justifyContent: 'space-between' }}>
+                                            <div>
+                                                <h1><FontAwesomeIcon icon={faCartPlus} /></h1>
+                                            </div>
+                                            <div>
+                                                <div style={{ padding: '10px' }}><h1>{userOrders.length}</h1></div>
+                                            </div>
+                                        </div>
+                                        <div style={{ textAlign: 'center' }}>
+                                            <Link to="/order"><h5><strong>My orders</strong></h5></Link>
+                                        </div>
                                     </div>
-                                </div>
-                                <div style={{ textAlign: 'center' }}>
-                                    <h5><strong>Total Services</strong></h5>
-                                </div>
-                            </div>
-
-                       
 
 
-                           
-                              <div style={{ width: '200px', minHeight: '150px', boxShadow: '20px 20px 60px grey', borderRadius: '5px', margin: '10px' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px' }}>
-                                    <div>
-                                    <h1><FontAwesomeIcon icon={faListUl} /></h1>
-                                    </div>
-                                    <div>
-                                        <div style={{ padding: '10px' }}><h1>{orders.length}</h1></div>
-                                    </div>
-                                </div>
-                                <div style={{ textAlign: 'center' }}>
-                                    <h5><strong>Total Orders</strong></h5>
-                                </div>
-                            </div>
 
-                          
-
-                           
-                              <div style={{width: '200px', minHeight: '150px', boxShadow: '20px 20px 60px grey', borderRadius: '5px', margin: '10px' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px' }}>
-                                    <div>
-                                    <h1><FontAwesomeIcon icon={faComments} /></h1>
-                                    </div>
-                                    <div>
-                                        <div style={{ padding: '10px' }}><h1>{reviews.length}</h1></div>
-                                    </div>
-                                </div>
-                                <div style={{ textAlign: 'center' }}>
-                                    <h5><strong>Total Reviews</strong></h5>
-                                </div>
-                            </div>
-
-                      
-
-
-                     
-                              <div style={{ width: '200px', minHeight: '150px', boxShadow: '20px 20px 60px grey', borderRadius: '5px', margin: '10px' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px' }}>
-                                    <div>
-                                    <h1><FontAwesomeIcon icon={faCartPlus} /></h1>
-                                    </div>
-                                    <div>
-                                        <div style={{ padding: '10px' }}><h1>{userOrders.length}</h1></div>
-                                    </div>
-                                </div>
-                                <div style={{ textAlign: 'center' }}>
-                                    <h5><strong>My orders</strong></h5>
-                                </div>
-                            </div>
-
-                           </div>
-                 
-                            
-                            :
-
-                           
-                           
-                              <div style={{ width: '200px', minHeight: '150px', boxShadow: '20px 20px 60px grey', borderRadius: '5px', margin: '10px',textDecoration:'none' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px' }}>
-                                    <div>
-                                        <h1><FontAwesomeIcon icon={faCartPlus} /></h1>
-                                    </div>
-                                    <div>
-                                        <div style={{ padding: '10px' }}><h1>{userOrders.length}</h1></div>
-                                    </div>
-                                </div>
-                                <div style={{ textAlign: 'center' }}>
-                                <Link to="/order"><h5><strong>My orders</strong></h5></Link>
-                                </div>
-                            </div>
-                            
-
-                    
-                        }
+                            }
 
                         </div>
 

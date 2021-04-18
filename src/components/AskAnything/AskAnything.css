@@ -1,0 +1,12 @@
+.ask-anything-wrapper{
+
+    background: #333;
+    color:#fff;
+    min-height: 400px;
+}
+
+.ask-anything-inner-wrapper{
+    text-align: center;
+    color: #fff;
+    margin: 20px auto;
+}

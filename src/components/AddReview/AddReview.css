@@ -1,0 +1,12 @@
+.btn-prime{
+    padding: 10px;
+    width: 80px;
+    border-radius: 5px;
+    background: crimson;
+    color: #fff;
+}
+
+.spinner-center{
+    margin: 0 auto;
+    text-align: center;
+}

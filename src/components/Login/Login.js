@@ -16,7 +16,7 @@ import { useHistory, useLocation } from 'react-router';
 const Login = () => {
 
 
-    if(firebase.apps.length === 0){
+    if (firebase.apps.length === 0) {
         firebase.initializeApp(firebaseConfig);
     }
 
@@ -24,17 +24,17 @@ const Login = () => {
     const history = useHistory();
     const location = useLocation();
 
-    const {from} = location.state || {from: {pathname: "/"}};
+    const { from } = location.state || { from: { pathname: "/" } };
 
 
     const setUserToken = () => {
 
-        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
             sessionStorage.setItem('token', idToken);
-      }).catch(function(error) {
-        // Handle error
-      });
-        
+        }).catch(function (error) {
+            // Handle error
+        });
+
     }
 
 
@@ -44,16 +44,16 @@ const Login = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
 
         firebase.auth().signInWithPopup(provider)
-        .then(result => {
-               
-            const { displayName, email, photoURL } = result.user;
-            const signedInUser = { name: displayName, email, isLoggedIn: true, image:photoURL };
-            setUserToken();
-            setLoggedInUser(signedInUser);
-            history.replace(from); 
-        }).catch((error)=>{
+            .then(result => {
 
-            var errorCode = error.code;
+                const { displayName, email, photoURL } = result.user;
+                const signedInUser = { name: displayName, email, isLoggedIn: true, image: photoURL };
+                setUserToken();
+                setLoggedInUser(signedInUser);
+                history.replace(from);
+            }).catch((error) => {
+
+                var errorCode = error.code;
                 var errorMessage = error.message;
                 var email = error.email;
                 var credential = error.credential;
@@ -62,7 +62,7 @@ const Login = () => {
                 }
                 setLoggedInUser(newData);
 
-        });
+            });
     }
 
 
@@ -73,18 +73,18 @@ const Login = () => {
             <div id="login-container">
 
                 {/* google Sign in button */}
-            <div style={{boxShadow:'10px 10px 20px lightgrey', padding:'20px', width:'300px', display:'flex',alignItems:'center',justifyContent:'center'}}>
-                
-                <div>
-                <h3 style={{textAlign:'center'}} ><FontAwesomeIcon icon={faHammer}></FontAwesomeIcon><span><strong> Car<sup style={{ color: 'crimson' }}> <b>fixer.  </b></sup></strong></span></h3>
-                <br></br>
-                <h3 style={{textAlign:'center'}}>Login</h3>
-               <br></br>
-               
-                <Button onClick={handleLogin}><FontAwesomeIcon icon={faGoogle} />   &nbsp;&nbsp;Login with google</Button>
-                <br /><br />
+                <div className="login-inner-container">
+
+                    <div>
+                        <h3 style={{ textAlign: 'center' }} ><FontAwesomeIcon icon={faHammer}></FontAwesomeIcon><span><strong> Car<sup style={{ color: 'crimson' }}> <b>fixer.  </b></sup></strong></span></h3>
+                        <br></br>
+                        <h3 style={{ textAlign: 'center' }}>Login</h3>
+                        <br></br>
+
+                        <Button onClick={handleLogin}><FontAwesomeIcon icon={faGoogle} />   &nbsp;&nbsp;Login with google</Button>
+                        <br /><br />
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     );

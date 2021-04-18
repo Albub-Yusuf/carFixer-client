@@ -3,17 +3,17 @@ import HiddenNav from '../../HiddenNav/HiddenNav';
 import SideNav from '../../SideNav/SideNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Table, Container, Spinner } from 'react-bootstrap';
-import { faEdit, faTrash,faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faEdit, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { AuthContext } from '../../../App';
 
 const ManageServices = () => {
 
-    
+
     const [loggedInUser, setLoggedInUser] = useContext(AuthContext);
     const [services, setServices] = useState([]);
     const [deleteSpinner, setDeleteSpinner] = useState(null);
-    let serial=0;
+    let serial = 0;
 
     const url = `https://evening-shore-59266.herokuapp.com/services`;
 
@@ -28,7 +28,7 @@ const ManageServices = () => {
 
     const deleteService = (id) => {
 
-     
+
 
         const url = `https://evening-shore-59266.herokuapp.com/delete/${id}`;
 
@@ -66,84 +66,84 @@ const ManageServices = () => {
     }
 
     return (
-        
-        <div style={{overflowX:'hidden'}}>
-        <div className="Adminwrapper">
 
-            {/* SideNav */}
-            <div className="side-nav-section"><SideNav></SideNav></div>
-            <div className="content">
+        <div style={{ overflowX: 'hidden' }}>
+            <div className="Adminwrapper">
 
-                {/* Hidden Nav */}
-                <div className="hiddenNavAdmin">
-                    <HiddenNav></HiddenNav>
-                </div>
+                {/* SideNav */}
+                <div className="side-nav-section"><SideNav></SideNav></div>
+                <div className="content">
 
-                {/* Top panel */}
-                <div className="topPanel">
-                    <h3>Manage Services</h3>
-                    {
-                        deleteSpinner &&
+                    {/* Hidden Nav */}
+                    <div className="hiddenNavAdmin">
+                        <HiddenNav></HiddenNav>
+                    </div>
 
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <Spinner style={{ margin: '0px auto', textAlign: 'center' }} animation="grow" role="status" variant="warning">
-                                <span className="sr-only">Loading...</span>
-                            </Spinner>
-                            <span style={{ color: 'red' }}>Deleting...</span>
-                        </div>
+                    {/* Top panel */}
+                    <div className="topPanel">
+                        <h3>Manage Services</h3>
+                        {
+                            deleteSpinner &&
 
-                    }
-                </div>
-
-                <div className="mainPanel">
-
-
-                    <Container fluid>
-          
-                        <h2>Service List</h2>
-                        
-                        <div className="table-wrapper">
-                            <div>
-                                <Table responsive="sm">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Services</th>
-                                            <th>Price</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {
-                                            services.slice(0).reverse().map(service => <tr key={service._id}>
-
-                                                <td>{serial = serial + 1}</td>
-                                                <td>{service.title}</td>
-                                                <td>{service.price}/-</td>
-                                                <td>
-                                                    <span><FontAwesomeIcon icon={faEdit} />  &nbsp;</span> 
-                                                     <span style={{ cursor: 'pointer' }} onClick={() => deleteService(service._id)}><FontAwesomeIcon icon={faTrash} /> &nbsp;</span> &nbsp;&nbsp;
-                                                </td>
-                                                <td>
-                                                    
-                                                </td>
-
-                                            </tr>)
-                                        }
-
-                                    </tbody>
-                                </Table>
+                            <div className="flex-center">
+                                <Spinner className="spinner-center" animation="grow" role="status" variant="warning">
+                                    <span className="sr-only">Loading...</span>
+                                </Spinner>
+                                <span style={{ color: 'red' }}>Deleting...</span>
                             </div>
 
-                        </div>
+                        }
+                    </div>
 
-                    </Container> 
+                    <div className="mainPanel">
+
+
+                        <Container fluid>
+
+                            <h2>Service List</h2>
+
+                            <div className="table-wrapper">
+                                <div>
+                                    <Table responsive="sm">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Services</th>
+                                                <th>Price</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {
+                                                services.slice(0).reverse().map(service => <tr key={service._id}>
+
+                                                    <td>{serial = serial + 1}</td>
+                                                    <td>{service.title}</td>
+                                                    <td>{service.price}/-</td>
+                                                    <td>
+                                                        <span><FontAwesomeIcon icon={faEdit} />  &nbsp;</span>
+                                                        <span style={{ cursor: 'pointer' }} onClick={() => deleteService(service._id)}><FontAwesomeIcon icon={faTrash} /> &nbsp;</span> &nbsp;&nbsp;
+                                                </td>
+                                                    <td>
+
+                                                    </td>
+
+                                                </tr>)
+                                            }
+
+                                        </tbody>
+                                    </Table>
+                                </div>
+
+                            </div>
+
+                        </Container>
+
+                    </div>
 
                 </div>
-
             </div>
         </div>
-    </div>
     );
 };
 

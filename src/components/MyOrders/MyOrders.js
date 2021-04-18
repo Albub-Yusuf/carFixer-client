@@ -16,7 +16,7 @@ const MyOrders = () => {
     const [orders, setOrders] = useState([]);
 
     const url = `https://evening-shore-59266.herokuapp.com/orders/${loggedInUser.email}`;
-    
+
 
     useEffect(() => {
 
@@ -30,62 +30,55 @@ const MyOrders = () => {
 
 
     return (
-        
+
         <div>
-        <div className="Adminwrapper">
-        
-        {/* SideNav */}
-        <div className="side-nav-section"><SideNav></SideNav></div>
-        <div className="content">
-        
-             {/* Hidden Nav */}
-             <div className="hiddenNavAdmin">
-                <HiddenNav></HiddenNav>
-            </div>
-        
-            {/* Top panel */}
-            <div className="topPanel">
-                <h3>Order list</h3>
-            </div>
-        
-           
-                <div className="mainPanel">
-        
-                   
-                <Container>
-            <br></br>
-           
-            
-            <div className="tableSecondaryStyle">
+            <div className="Adminwrapper">
 
-                <div style={{display:'flex', alignItems:'center', justifyContent:'center', flexWrap:'wrap'}}>
-                    
-                {
-                  orders.slice(0).reverse().map(order => <MyOrderCard key={order._id} order={order}></MyOrderCard> )
-                
-                
-                }
-                </div>
+                {/* SideNav */}
+                <div className="side-nav-section"><SideNav></SideNav></div>
+                <div className="content">
 
+                    {/* Hidden Nav */}
+                    <div className="hiddenNavAdmin">
+                        <HiddenNav></HiddenNav>
+                    </div>
+
+                    {/* Top panel */}
+                    <div className="topPanel">
+                        <h3>Order list</h3>
+                    </div>
+
+
+                    <div className="mainPanel">
+
+
+                        <Container>
+                            <br></br>
+
+
+                            <div className="tableSecondaryStyle">
+
+                                <div className="flex-center" style={{ flexWrap: 'wrap' }}>
+
+                                    {
+                                        orders.slice(0).reverse().map(order => <MyOrderCard key={order._id} order={order}></MyOrderCard>)
+
+
+                                    }
+                                </div>
+
+                            </div>
+
+                        </Container>
+
+                    </div>
+
+                    <div className="bottomPanel">
+
+                    </div>
+
+                </div>
             </div>
-
-        </Container>
-               
-        
-                </div>
-        
-                <div className="bottomPanel">
-        
-            
-                    
-        
-                </div>
-          
-        
-        
-        
-        </div>
-        </div>
         </div>
     );
 };

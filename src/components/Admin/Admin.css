@@ -9,6 +9,28 @@
 
   }
 
+  .dashboard-info-card{
+    /* style={{ width: '200px', minHeight: '150px', boxShadow: '20px 20px 60px grey', borderRadius: '5px', margin: '10px' }} */
+    width: 200px;
+    min-height: 150px;
+    box-shadow: 20px 20px 60px grey;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  .dashboard-info-card-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .input-wrapper{
       width: 100%;
       margin: 20px;

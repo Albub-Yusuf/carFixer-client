@@ -67,7 +67,14 @@
   
   }
   
-  
+  .login-inner-container{
+    box-shadow: 10px 10px 20px lightgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    padding: 20px;
+  }
     
   
   

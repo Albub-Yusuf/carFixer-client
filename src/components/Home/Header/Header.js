@@ -13,7 +13,7 @@ const Header = () => {
             <div className="headerContainer">
 
                 <Navbar></Navbar>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh', background: 'rgba(0,0,0,.5)', }}>
+                <div className="flex-center" style={{ minHeight: '80vh', background: 'rgba(0,0,0,.5)', }}>
 
                     <Container style={{marginBottom:'100px'}}>
 
@@ -37,10 +37,10 @@ const Header = () => {
 
             </div>
             <Container style={{marginBottom:'100px'}}>
-                <div style={{ minHeight: '150px', margin: '-85px auto', padding: '10px', textAlign: 'center', }}>
+                <div className="business-info-inner-wrapper">
                     <Row>
                         <Col xs={12} md={4} sm={12} mt-5>
-                            <div style={{ background: '#ccc', marginRight: '10px', padding: '10px', background: 'crimson', color: '#fff', borderRadius: '5px' }}>
+                            <div className="business-info-card" style={{backgroundColor:'crimson',color:'#fff'}}>
                                 <FontAwesomeIcon icon={faWrench}></FontAwesomeIcon>
                                 <h3><strong>Repair Services</strong></h3>
                                 <p><small><b>We can repair any vehicle.Just contact us</b></small></p>
@@ -48,7 +48,7 @@ const Header = () => {
 
                         </Col>
                         <Col xs={12} md={4} sm={12} mt-5>
-                            <div style={{ background: '#ccc', marginRight: '10px', padding: '10px', background: 'crimson', color: '#fff', borderRadius: '5px' }}>
+                            <div className="business-info-card">
                                 <FontAwesomeIcon icon={faCogs}></FontAwesomeIcon>
                                 <h3><strong>Car Tuning Service</strong></h3>
                                 <p><small><b>Get your car a new classy look.</b></small></p>
@@ -56,7 +56,7 @@ const Header = () => {
 
                         </Col>
                         <Col xs={12} md={4} sm={12} mt-5>
-                            <div style={{ background: '#ccc', marginRight: '10px', padding: '10px', background: 'crimson', color: '#fff', borderRadius: '5px' }}>
+                            <div className="business-info-card" style={{backgroundColor:'cornflowerblue'}}>
                                 <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
                                 <h3><strong>Working Hours</strong></h3>
                                 <p><small><b>SAT-THU - 9:30AM to 8:00PM</b></small></p>

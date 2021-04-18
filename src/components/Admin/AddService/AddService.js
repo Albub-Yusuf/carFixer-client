@@ -81,102 +81,105 @@ const AddService = () => {
 
 
     return (
-        
+
         <div>
-        <div className="Adminwrapper">
+            <div className="Adminwrapper">
 
-            {/* SideNav */}
-            <div className="side-nav-section"><SideNav></SideNav></div>
-            <div className="content">
+                {/* SideNav */}
+                <div className="side-nav-section"><SideNav></SideNav></div>
+                <div className="content">
 
-                 {/* Hidden Nav */}
-                 <div className="hiddenNavAdmin">
-                    <HiddenNav></HiddenNav>
-                </div>
+                    {/* Hidden Nav */}
+                    <div className="hiddenNavAdmin">
+                        <HiddenNav></HiddenNav>
+                    </div>
 
-                {/* Top panel */}
-                <div className="topPanel">
-                    <h3>Add Service</h3>
-                </div>
+                    {/* Top panel */}
+                    <div className="topPanel">
+                        <h3>Add Service</h3>
+                    </div>
 
-                {/* form */}
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="mainPanel">
+                    {/* form */}
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="mainPanel">
 
-                        <div className="group-field" >
-                            <div className="input-wrapper">
-                                <label><strong>Service Title</strong></label><br />
-                                <input className="inputStyle" placeholder="Service title"  {...register("title", { required: true })} />
-                                {errors.name && <span>This field is required</span>}
+                            <div className="group-field" >
+                                <div className="input-wrapper">
+                                    <label><strong>Service Title</strong></label><br />
+                                    <input className="inputStyle" placeholder="Service title"  {...register("title", { required: true })} />
+                                    <br/>
+                                    {errors.title && <span style={{color:'red'}}>This field is required</span>}
+                                </div>
+
+                                <div className="input-wrapper">
+                                    <label><strong>Service Details</strong></label><br />
+
+                                    <textarea className="inputStyle" name="details" id="details" cols="40" rows="5" {...register('details', { required: true })}></textarea>
+                                    <br></br>
+                                    {errors.details && <span style={{color:'red'}}>Field Required</span>}
+
+                                </div>
                             </div>
 
-                            <div className="input-wrapper">
-                                <label><strong>Details</strong></label><br />
-                              
-                                <textarea className="inputStyle" name="details" id="details" cols="40" rows="5" {...register('details', {required:true})}>Service details...</textarea>
-                                 {errors.details && <span>Field Required</span>}
-
-                            </div>
-                        </div>
 
 
+                            <div className="group-field" >
+                                <div className="input-wrapper">
+                                    <label><strong>Price</strong></label><br />
+                                    <input className="inputStyle" type="number" placeholder="price"  {...register("price", { required: true })} />
+                                    <br/>
+                                    {errors.price && <span style={{color:'red'}}>This field is required</span>}
+                                </div>
 
-                        <div className="group-field" >
-                            <div className="input-wrapper">
-                                <label><strong>Price</strong></label><br />
-                                <input className="inputStyle"  type="number" placeholder="price"  {...register("price", { required: true })} />
-                                {errors.price && <span>This field is required</span>}
-                            </div>
-
-                            <br />
-                            <div className="input-wrapper">
-                                <label><strong>Image upload</strong></label><br />
-                                <input className="inputStyle" type="file" name="image" onChange={handleImageUpload} id="" />
                                 <br />
+                                <div className="input-wrapper">
+                                    <label><strong>Image upload</strong></label><br />
+                                    <input className="inputStyle" type="file" name="image" onChange={handleImageUpload} id="" />
+                                    <br />
 
-                                {
-                                    visible ? status ? <p><span style={{ color: 'green' }}>image uploaded successfully... Please proceed now</span></p>
+                                    {
+                                        visible ? status ? <p><span style={{ color: 'green' }}>image uploaded successfully... Please proceed now</span></p>
 
 
-                                        : <p><span style={{ color: 'red' }}>image uploading...</span></p>
-                                        : <p></p>
-                                }
-                                {
-                                    spinner &&
+                                            : <p><span style={{ color: 'red' }}>image uploading...</span></p>
+                                            : <p></p>
+                                    }
+                                    {
+                                        spinner &&
 
-                                    <Spinner style={{ margin: '0px auto' }} animation="grow" role="status" variant="warning">
+                                        <Spinner className="spinner-center" animation="grow" role="status" variant="warning">
+                                            <span className="sr-only">Loading...</span>
+                                        </Spinner>
+
+                                    }
+                                    <br />
+                                </div>
+                            </div>
+
+                            {
+                                spinnerdataUpload &&
+
+                                <div className="uploadStatus">
+                                    <Spinner className="spinner-center" animation="grow" role="status" variant="warning">
                                         <span className="sr-only">Loading...</span>
                                     </Spinner>
+                                    <span style={{ color: 'red' }}>Uploading...</span>
+                                </div>
 
-                                }
-                                <br />
-                            </div>
+                            }
+
                         </div>
 
-                        {
-                            spinnerdataUpload &&
+                        <div className="bottomPanel">
+                            <input className="btn-prime" type="submit" value="Save" />
 
-                            <div className="uploadStatus">
-                                <Spinner style={{ margin: '0px auto', textAlign: 'center' }} animation="grow" role="status" variant="warning">
-                                    <span className="sr-only">Loading...</span>
-                                </Spinner>
-                                <span style={{ color: 'red' }}>Uploading...</span>
-                            </div>
-
-                        }
-
-                    </div>
-
-                    <div className="bottomPanel">
-                        <input  style={{ padding: '10px', width: '80px', borderRadius: '8px', backgroundColor:'crimson', color:'#fff' }} type="submit" value="Save" />
-
-                    </div>
-                </form>
+                        </div>
+                    </form>
 
 
+                </div>
             </div>
         </div>
-    </div>
     );
 };
 

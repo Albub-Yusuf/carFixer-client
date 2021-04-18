@@ -29,16 +29,16 @@ const AskAnything = () => {
 
     };
     return (
-        <div style={{ backgroundColor: '#333', color: '#fff', minHeight: '400px' }}>
+        <section className="ask-anything-wrapper">
             <Container mt-5>
                 <br></br><br></br>
-                <div style={{ textAlign: 'center', color: '#fff', margin: '20px auto' }}>
-                    <h2 style={{ fontSize: '48px' }}><strong><span style={{ color: '#fff' }}>Ask </span> <span style={{ color: 'crimson' }}> anything</span></strong></h2>
+                <div className="ask-anything-inner-wrapper">
+                    <h2 style={{ fontSize: '48px' }}><strong><span style={{ color: '#fff' }}>Ask </span> <span className="prime"> anything</span></strong></h2>
                     <p style={{ color: '#fff' }}><strong>we love to hear from you ask anything or get a quotation</strong></p>
                     <br></br><br></br>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div className="flex-center">
                     <div>
                         <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -47,7 +47,7 @@ const AskAnything = () => {
                             <br></br>
                             <input className="inputStyle" style={{ width: '350px', height: '50px' }} placeholder="name" {...register("name", { required: true })} />
                             <br></br>
-                            {errors.name && <span>This field is required</span>}
+                            {errors.name && <span style={{color:'red'}}>This field is required</span>}
 
 
                             <br /><br></br>
@@ -56,13 +56,13 @@ const AskAnything = () => {
                             <br></br>
                             <input className="inputStyle" style={{ width: '350px', height: '50px' }} placeholder="email" {...register("email", { required: true })} />
                             <br></br>
-                            {errors.email && <span>This field is required</span>}
+                            {errors.email && <span style={{color:'red'}}>This field is required</span>}
 
                             <br></br><br></br>
                             <label><strong>Message: </strong></label>
                             <br></br>
-                            <textarea className="inputStyle" name="message" id="message" cols="35" rows="5" {...register('message', { required: true })}>your message please...</textarea>
-                            {errors.message && <span>Field Required</span>}
+                            <textarea className="inputStyle" name="message" id="message" cols="35" rows="5" {...register('message', { required: true })}></textarea>
+                            {errors.message && <span style={{color:'red'}}>This field is required</span>}
 
                             <br></br>
                             <br></br>
@@ -73,7 +73,7 @@ const AskAnything = () => {
 
             </Container>
             <br></br><br></br>
-        </div>
+        </section>
     );
 };
 

@@ -1,0 +1,26 @@
+.about-text-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.about-text p{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.dark{
+    color:#333;
+}
+
+.prime{
+    color:crimson;
+}
+
+.about-heading{
+    text-align: center;
+    font-size: 48px;
+}
+
+

@@ -45,40 +45,35 @@ function App() {
 
   return (
     <div>
-            <AuthContext.Provider value={[loggedInUser, setLoggedInUser]}>
-            <CartContext.Provider value={[cartInfos, setCartInfos]}>
+      <AuthContext.Provider value={[loggedInUser, setLoggedInUser]}>
+        <CartContext.Provider value={[cartInfos, setCartInfos]}>
 
-    <Router>
-    
-      <Switch>
+          <Router>
 
-
+            <Switch>
               
+              <Route path="/login">
+                <Login></Login>
+              </Route>
+              <Route path="/askAnything">
+                <AskAnything></AskAnything>
+              </Route>
+              <Route path="/about">
+                <About></About>
+              </Route>
+              <Route path="/services">
+                <Services></Services>
+              </Route>
+              <Route exact path="/">
+                <Home></Home>
+              </Route>
+
+              <Route path="/home">
+                <Home></Home>
+              </Route>
 
 
-
-       <Route path="/login">
-          <Login></Login>
-       </Route>
-        <Route path="/askAnything">
-          <AskAnything></AskAnything>
-        </Route>
-        <Route path="/about">
-            <About></About>
-          </Route>
-        <Route path="/services">
-          <Services></Services>
-        </Route>
-        <Route exact path="/">
-          <Home></Home>
-        </Route>
-
-        <Route path="/home">
-          <Home></Home>
-        </Route>
-
-
-        <PrivateRoute path="/add">
+              <PrivateRoute path="/add">
                 <AddService></AddService>
               </PrivateRoute>
 
@@ -87,7 +82,7 @@ function App() {
               </PrivateRoute>
 
               <PrivateRoute path="/manage-service">
-              <ManageServices></ManageServices>
+                <ManageServices></ManageServices>
               </PrivateRoute>
 
               <PrivateRoute path="/createReview">
@@ -108,20 +103,18 @@ function App() {
 
 
               <PrivateRoute path="/checkout">
-               <Checkout></Checkout>
+                <Checkout></Checkout>
               </PrivateRoute>
 
               <PrivateRoute path="/admin">
-               <Admin></Admin>
+                <Admin></Admin>
               </PrivateRoute>
-
-
-
-      </Switch>
-  </Router>
-  </CartContext.Provider>
-  </AuthContext.Provider>
-  </div>
+              
+            </Switch>
+          </Router>
+        </CartContext.Provider>
+      </AuthContext.Provider>
+    </div>
 
 
   );
